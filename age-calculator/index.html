@@ -82,11 +82,37 @@
 				const lastName = document.getElementById('lName').value;
 				const age = document.getElementById('age').value;
 
+				function calcAgeinSeconds(age) {
+					ageInSeconds = age * 86400 * 365;
+					return ageInSeconds;
+				}
+
+				function calcAgeinMinutes(age) {
+					ageInMinutes = age * 365.24 * 1440;
+					return ageInMinutes;
+				}
+
+				function calcAgeInHours(age){
+					ageInHours = age * 365 * 24;
+					return ageInHours
+				}
+				function calcAgeInDays(age){
+					ageInDays = age * 365;
+					return ageInDays;
+				}
+				ageInSeconds = calcAgeinSeconds(age);
+				ageInMinutes = calcAgeinMinutes(age);
+				ageInHours = calcAgeInHours(age);
+				ageInDays = calcAgeInDays(age);
+
 				let resultMessage = '';
 				if (firstName && lastName && age) {
 					resultMessage = `<h3> Hello ${firstName} ${lastName} ! </h3>
-									<p> You are ${age} years old.</p>`;
-				  
+									<p> You are ${age} years old.</p>
+									<p> You have been in this world for ${ageInSeconds} seconds. </p>
+									<p> You have been in this world for ${ageInMinutes} minutes. </p>
+									<p> You have been in this world for ${ageInHours} hours. </p>
+									<p> You have been in this world for ${ageInDays} days. </p>`;
 				} else {
 					resultMessage = '<p> Please fill out all fields.</p>'
 				}
